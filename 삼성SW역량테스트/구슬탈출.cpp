@@ -3,7 +3,7 @@
 
 using namespace std;
 
-void checknode(char board){
+void checknode(char boardi[][]){
 	for(int i=0; i<4; i++){
 		if promising(board, i) {
 			
@@ -14,18 +14,16 @@ void checknode(char board){
 
 bool promising(char board, int i){
 	switch(i){
-		case '0':
-			int red, blue;
-			for(int i=0; i<N; i++)
-				for(int j=0; j<M; j++)
-					if(board[N][M] == 'R')
-						red_n = N;
-					if(board[N][M] == 'B')
-						blue = N;
-
+		case '0':						// 위로 기울었을 때
+			int red_N, red_M, blue_N, blue_M;
+			for(int i=1; i<N-1; i++)
+				for(int j=1; j<M-1; j++)
+					if(board[N][M] == 'R') red_N, red_M = N, M;
+					if(board[N][M] == 'B') blue_N, blue_M = N, M;
 			while(true){
-				if(board[red
-				board[
+				if(board[red_N+1][red_M] == ".")  
+
+				board[]
 		case '1':
 
 		case '2':
@@ -34,7 +32,7 @@ bool promising(char board, int i){
 
 		default:
 			return false;
-}
+}}
 
 
 
