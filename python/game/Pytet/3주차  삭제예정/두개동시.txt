@@ -1,0 +1,35 @@
+    idxType = str(randint(0, a.nBlockTypes))
+    a.state = a.accept('0' + idxType)
+    b.state = b.accept('0' + idxType)
+
+    while a.select_mode() :
+        continue
+    while b.select_mode() :
+        continue
+
+    while True :
+        key = input('Enter a key from [ q (quit), a (left), d (right), s (down), w (rotate), \' \' (drop) ] : ')
+        a.state = a.accept(key + idxType)
+        b.state = b.accept(key + idxType)
+        if a.state == TetrisState.Finished:
+            break
+        if b.state == TetrisState.Finished:
+            break
+
+        a.print_oScreen()
+        b.print_oScreen()
+
+        if a.state == TetrisState.NewBlock :
+            idxType = str(randint(0, a.nBlockTypes))
+            a.state = a.accept('0' + idxType)
+            if a.state == TetrisState.Finished :
+                print('Game Over!!!')
+                break 
+            a.print_oScreen()
+        if b.state == TetrisState.NewBlock :
+            idxType = str(randint(0, b.nBlockTypes))
+            b.state = b.accept('0' + idxType)
+            if b.state == TetrisState.Finished :
+                print('Game Over!!!')
+                break 
+            b.print_oScreen()
